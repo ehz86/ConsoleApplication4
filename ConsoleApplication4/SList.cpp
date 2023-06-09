@@ -23,11 +23,8 @@ public:
             head = newNode;
         }
         else {
-            Node* curr = head;
-            while (curr->next != nullptr) {
-                curr = curr->next;
-            }
-            curr->next = newNode;
+            newNode->next = head;
+            head = newNode;
         }
     }
 
@@ -76,14 +73,19 @@ public:
         prev->next = curr->next;
         delete curr;
     }
-    int showlastanddelete() {
+    int showlast() {
        
 
-        int data = head->data;
+            int data = head->data;
+        return data;
+    }
+    void lastdelete() {
+       
         Node* temp = head;
         head = head->next;
         delete temp;
-        return data;
+        
+       
     }
     bool isEmpty() const {
         return head == nullptr;
